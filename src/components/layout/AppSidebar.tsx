@@ -1,4 +1,4 @@
-import { Bot, FileText, MessageSquare, BarChart3, Settings } from "lucide-react";
+import { Bot, FileText, MessageSquare, BarChart3, Settings, User2, LogOut, ChevronUp } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -10,6 +10,13 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { useAuth } from '@/contexts/AuthContext';
 
 const menuItems = [
   {
@@ -35,6 +42,11 @@ const menuItems = [
 ];
 
 export function AppSidebar() {
+  const { user, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    await signOut();
+  };
   return (
     <Sidebar>
       <SidebarContent>
@@ -60,9 +72,24 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <div className="p-4 text-sm text-muted-foreground">
-          WhatsApp RAG Bot v1.0
-        </div>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <SidebarMenuButton>
+                  <User2 /> {user?.email}
+                  <ChevronUp className="ml-auto" />
+                </SidebarMenuButton>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent side="top" className="w-[--radix-dropdown-menu-trigger-width]">
+                <DropdownMenuItem onClick={handleSignOut}>
+                  <LogOut />
+                  Sair
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarFooter>
     </Sidebar>
   );
