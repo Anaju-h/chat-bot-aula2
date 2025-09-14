@@ -36,6 +36,11 @@ export function ChatBot() {
         "Essa é uma ótima pergunta! Vou buscar as informações para você.",
         "Com base no que você perguntou, aqui estão algumas opções...",
         "Obrigado por entrar em contato. Vou verificar isso para você.",
+        "Baseado na nossa base de conhecimento, posso sugerir as seguintes soluções...",
+        "Vou consultar nossas políticas mais recentes sobre esse assunto.",
+        "Encontrei algumas informações relevantes que podem ajudá-lo:",
+        "De acordo com nossos dados, a melhor abordagem seria...",
+        "Posso conectá-lo com um especialista se precisar de ajuda mais específica.",
       ];
       
       const randomResponse = responses[Math.floor(Math.random() * responses.length)];

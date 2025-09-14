@@ -1,4 +1,4 @@
-import { Bot, FileText, MessageSquare, BarChart3, Settings, User2, LogOut, ChevronUp } from "lucide-react";
+import { Bot, FileText, MessageSquare, BarChart3, Settings, User2, LogOut, ChevronUp, ClipboardList } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -33,6 +33,11 @@ const menuItems = [
     title: "Conversas",
     url: "/conversations",
     icon: MessageSquare,
+  },
+  {
+    title: "Relatórios",
+    url: "/reports",
+    icon: ClipboardList,
   },
   {
     title: "Configurações",
