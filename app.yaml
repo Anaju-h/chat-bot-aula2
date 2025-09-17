@@ -1,0 +1,49 @@
+# Google App Engine configuration
+runtime: nodejs20
+
+# Instance class - adjust based on your needs
+instance_class: F1
+
+# Automatic scaling configuration
+automatic_scaling:
+  min_instances: 0
+  max_instances: 10
+  target_cpu_utilization: 0.6
+
+# Static file handlers for built React app
+handlers:
+  # Handle static assets
+  - url: /assets
+    static_dir: dist/assets
+    secure: always
+
+  # Handle favicon and other root static files
+  - url: /(.*\.(ico|png|jpg|jpeg|gif|svg|css|js|json|txt|xml))$
+    static_files: dist/\1
+    upload: dist/.*\.(ico|png|jpg|jpeg|gif|svg|css|js|json|txt|xml)$
+    secure: always
+
+  # Serve index.html for all other routes (SPA routing)
+  - url: /.*
+    static_files: dist/index.html
+    upload: dist/index.html
+    secure: always
+
+# Environment variables
+env_variables:
+  NODE_ENV: production
+
+# Skip node_modules and source files
+skip_files:
+  - ^(.*/)?#.*#$
+  - ^(.*/)?.*~$
+  - ^(.*/)?.*\.py[co]$
+  - ^(.*/)?.*/RCS/.*$
+  - ^(.*/)?\..*$
+  - ^(.*/)?.*\.ts$
+  - ^(.*/)?.*\.tsx$
+  - ^(.*/)?src/.*$
+  - ^(.*/)?node_modules/.*$
+  - ^(.*/)?package-lock.json$
+  - ^(.*/)?yarn.lock$
+  - ^(.*/)?bun.lockb$

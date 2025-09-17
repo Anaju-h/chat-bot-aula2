@@ -1,0 +1,16 @@
+{
+  "name": "chatbot-rag-production",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "npx serve dist -s -l 8080",
+    "postinstall": "echo 'Ready for production deploy'"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}

@@ -12,3 +12,14 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://chatbot-rag.app/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Disallow private/admin areas
+Disallow: /admin
+Disallow: /api/private
+Disallow: /_next/static/

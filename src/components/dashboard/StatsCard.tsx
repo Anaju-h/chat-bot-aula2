@@ -26,7 +26,7 @@ export function StatsCard({ title, value, description, icon: Icon, trend }: Stat
         )}
         {trend && (
           <p className="text-xs text-muted-foreground">
-            <span className={trend.isPositive ? "text-green-600" : "text-red-600"}>
+            <span className={trend.isPositive ? "text-emerald-600 dark:text-emerald-400" : "text-red-600 dark:text-red-400"}>
               {trend.isPositive ? "+" : ""}{trend.value}%
             </span>{" "}
             desde o último mês
